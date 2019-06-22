@@ -1,6 +1,6 @@
 plugins {
-	id 'org.springframework.boot' version '2.1.6.RELEASE'
-	id 'groovy'
+  id 'org.springframework.boot' version '2.1.6.RELEASE'
+  id 'groovy'
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -10,10 +10,10 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 configurations {
-	developmentOnly
-	runtimeClasspath {
-		extendsFrom developmentOnly
-	}
+  developmentOnly
+  runtimeClasspath {
+    extendsFrom developmentOnly
+  }
 }
 
 repositories {
@@ -22,18 +22,19 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.codehaus.groovy:groovy'
-	implementation "org.flowable:flowable-spring-boot-starter-process-rest:${flowable_version}"
-	//implementation "org.flowable:flowable-spring-boot-starter-rest:${flowable_version}"
+  implementation 'org.springframework.boot:spring-boot-starter-actuator'
+  implementation 'org.springframework.boot:spring-boot-starter-security'
+  implementation 'org.springframework.boot:spring-boot-starter-web'
+  implementation 'org.codehaus.groovy:groovy'
+  implementation "org.flowable:flowable-spring-boot-starter-rest:${flowable_version}"
+  //implementation "org.flowable:flowable-spring-boot-starter-process-rest:${flowable_version}"
+  //implementation "org.flowable:flowable-spring-boot-starter-rest:${flowable_version}"
 
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+  developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-	runtimeOnly 'org.postgresql:postgresql'
+  runtimeOnly 'org.postgresql:postgresql'
         runtimeOnly 'com.h2database:h2'
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.security:spring-security-test'
+  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  testImplementation 'org.springframework.security:spring-security-test'
 }
