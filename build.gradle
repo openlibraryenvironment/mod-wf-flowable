@@ -27,8 +27,6 @@ dependencies {
   implementation 'org.springframework.boot:spring-boot-starter-web'
   implementation 'org.codehaus.groovy:groovy'
   implementation "org.flowable:flowable-spring-boot-starter-rest:${flowable_version}"
-  //implementation "org.flowable:flowable-spring-boot-starter-process-rest:${flowable_version}"
-  //implementation "org.flowable:flowable-spring-boot-starter-rest:${flowable_version}"
 
   developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
