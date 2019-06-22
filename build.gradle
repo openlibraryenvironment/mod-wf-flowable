@@ -1,0 +1,36 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.6.RELEASE'
+	id 'groovy'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'org.folio'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+flowable_version = '6.4.1'
+
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.codehaus.groovy:groovy'
+	implementation "org.flowable:flowable-spring-boot-starter-process-rest:${flowable_version}"
+	//implementation "org.flowable:flowable-spring-boot-starter-rest:${flowable_version}"
+
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'org.postgresql:postgresql'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+}
