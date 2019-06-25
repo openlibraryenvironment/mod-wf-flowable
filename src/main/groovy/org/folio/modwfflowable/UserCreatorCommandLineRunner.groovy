@@ -5,12 +5,13 @@ import org.flowable.idm.api.Privilege;
 import org.flowable.idm.api.User;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
- * @author Filip Hrisafov
- */
 @Component
 public class UserCreatorCommandLineRunner implements CommandLineRunner {
+
+  Logger logger = LoggerFactory.getLogger(UserCreatorCommandLineRunner.class);
 
   protected final IdmIdentityService idmIdentityService;
 
@@ -20,20 +21,15 @@ public class UserCreatorCommandLineRunner implements CommandLineRunner {
 
   @Override
   public void run(String... args) {
-    createUserIfNotExists("folio");
-    createUserIfNotExists("flowfest");
-    createUserIfNotExists("flowfest-actuator");
-    createUserIfNotExists("flowfest-rest");
-
     if (idmIdentityService.createPrivilegeQuery().privilegeName("ROLE_REST").count() == 0) {
       Privilege restPrivilege = idmIdentityService.createPrivilege("ROLE_REST");
-      idmIdentityService.addUserPrivilegeMapping(restPrivilege.getId(), "flowfest-rest");
     }
 
     if (idmIdentityService.createPrivilegeQuery().privilegeName("ROLE_ACTUATOR").count() == 0) {
       Privilege restPrivilege = idmIdentityService.createPrivilege("ROLE_ACTUATOR");
-      idmIdentityService.addUserPrivilegeMapping(restPrivilege.getId(), "flowfest-actuator");
     }
+
+    createUserIfNotExists("folio");
   }
 
   protected void createUserIfNotExists(String username) {
@@ -41,6 +37,11 @@ public class UserCreatorCommandLineRunner implements CommandLineRunner {
       User user = idmIdentityService.newUser(username);
       user.setPassword("test");
       idmIdentityService.saveUser(user);
+
+      def rest_priv = idmIdentityService.createPrivilegeQuery().privilegeName("ROLE_REST").singleResult()
+      idmIdentityService.addUserPrivilegeMapping(rest_priv.getId(), username);
+      def actuator_priv = idmIdentityService.createPrivilegeQuery().privilegeName("ROLE_ACTUATOR").singleResult()
+      idmIdentityService.addUserPrivilegeMapping(actuator_priv.getId(), username);
     }
   }
 }

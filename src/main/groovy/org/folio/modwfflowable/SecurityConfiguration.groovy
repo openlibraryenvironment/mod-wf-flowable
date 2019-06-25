@@ -25,6 +25,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .requestMatchers(EndpointRequest.to(InfoEndpoint.class, HealthEndpoint.class)).permitAll()
             .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ACTUATOR")
             .antMatchers("/*-api/**").hasRole("REST")
+            .antMatchers("/**").hasRole("REST")
             .anyRequest().authenticated()
             .and()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER).and()
@@ -33,17 +34,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     //@Bean
-    public UserDetailsService customUserDetailsService() {
-        UserDetails user1 = User.withUsername("custom-actuator")
-            .password("{noop}test")
-            .roles("ACTUATOR")
-            .build();
-
-        UserDetails user2 = User.withUsername("custom-rest")
-            .password("{noop}test")
-            .roles("REST")
-            .build();
-        return new InMemoryUserDetailsManager(user1, user2);
-    }
+    //public UserDetailsService customUserDetailsService() {
+    //    UserDetails user1 = User.withUsername("custom-actuator")
+    //        .password("{noop}test")
+    //        .roles("ACTUATOR")
+    //        .build();
+    //
+    //    UserDetails user2 = User.withUsername("custom-rest")
+    //        .password("{noop}test")
+    //        .roles("REST")
+    //        .build();
+    //    return new InMemoryUserDetailsManager(user1, user2);
+    //}
 }
 
