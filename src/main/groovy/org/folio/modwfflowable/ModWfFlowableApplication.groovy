@@ -13,10 +13,13 @@ class ModWfFlowableApplication {
     SpringApplication.run(ModWfFlowableApplication, args)
   }
 
-  // @Bean
-  // public EngineConfigurationConfigurer<SpringProcessEngineConfiguration> customProcessEngineConfigurer() {
-  //   return engineConfiguration -> {
-  //     engineConfiguration.setValidateFlowable5EntitiesEnabled(false);
-  //   };
-  // }
+  @Bean
+  public EngineConfigurationConfigurer<SpringProcessEngineConfiguration> customProcessEngineConfigurer() {
+    // N.B. Because this is a .groovy script we are using a groovy closure in place of a 
+    // Java 8 Lambda here. Groovy coercion will take care of the rest.
+    return { engineConfiguration ->
+      engineConfiguration.setValidateFlowable5EntitiesEnabled(false);
+
+    };
+  }
 }

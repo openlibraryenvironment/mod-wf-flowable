@@ -8,6 +8,12 @@
     <property name="asyncExecutorActivate" value="false" />
     <property name="mailServerHost" value="mail.my-corp.com" />
     <property name="mailServerPort" value="5025" />
+    <!--
+      See https://blog.flowable.org/2018/09/11/multitenancy-in-flowable/
+      we're using spring config as an alternative to calling config.setDatabaseType etc
+      See also https://github.com/flowable/flowable-engine/blob/master/modules/flowable5-engine/src/main/java/org/activiti/engine/ProcessEngineConfiguration.java
+    -->
+    <property name="databaseSchemaUpdate" value="true" />
   </bean>
 
 </beans>
