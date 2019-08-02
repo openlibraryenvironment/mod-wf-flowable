@@ -11,7 +11,7 @@ class ModWfFlowableApplicationTests {
 
   @Test
   void contextLoads() {
-
+    assert true==true
   }
 
 }
