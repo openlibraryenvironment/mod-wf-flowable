@@ -13,10 +13,12 @@ class ModWfFlowableApplication {
     SpringApplication.run(ModWfFlowableApplication, args)
   }
 
-  // @Bean
-  // public EngineConfigurationConfigurer<SpringProcessEngineConfiguration> customProcessEngineConfigurer() {
-  //   return engineConfiguration -> {
-  //     engineConfiguration.setValidateFlowable5EntitiesEnabled(false);
-  //   };
-  // }
+  @Bean
+  public EngineConfigurationConfigurer<SpringProcessEngineConfiguration> customProcessEngineConfigurer() {
+    // implement interface https://github.com/flowable/flowable-engine/blob/master/modules/flowable-spring-boot/flowable-spring-boot-starters/flowable-spring-boot-autoconfigure/src/main/java/org/flowable/spring/boot/EngineConfigurationConfigurer.java
+    //
+    return { SpringProcessEngineConfiguration engineConfiguration ->
+      engineConfiguration.setValidateFlowable5EntitiesEnabled(false);
+    } as EngineConfigurationConfigurer<SpringProcessEngineConfiguration>;
+  }
 }
