@@ -1,5 +1,6 @@
 plugins {
   id 'org.springframework.boot' version '2.3.3.RELEASE'
+  id 'io.spring.dependency-management' version '1.0.10.RELEASE'
   id 'groovy'
 }
 
@@ -22,16 +23,16 @@ repositories {
 }
 
 dependencies {
-  implementation 'org.springframework.boot:spring-boot-starter-actuator'
-  implementation 'org.springframework.boot:spring-boot-starter-security'
-  implementation 'org.springframework.boot:spring-boot-starter-web'
-  implementation 'org.codehaus.groovy:groovy'
-  implementation "org.flowable:flowable-spring-boot-starter-rest:${flowable_version}"
+  compile 'org.springframework.boot:spring-boot-starter-actuator'
+  compile 'org.springframework.boot:spring-boot-starter-security'
+  compile 'org.springframework.boot:spring-boot-starter-web'
+  compile 'org.codehaus.groovy:groovy'
+  compile "org.flowable:flowable-spring-boot-starter-rest:${flowable_version}"
 
   developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
   runtimeOnly 'org.postgresql:postgresql'
-        runtimeOnly 'com.h2database:h2'
+  runtimeOnly 'com.h2database:h2'
 
   testImplementation 'org.springframework.boot:spring-boot-starter-test'
   testImplementation 'org.springframework.security:spring-security-test'

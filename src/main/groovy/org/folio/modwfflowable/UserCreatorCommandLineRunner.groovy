@@ -21,6 +21,8 @@ public class UserCreatorCommandLineRunner implements CommandLineRunner {
 
   @Override
   public void run(String... args) {
+    println("Create users.....");
+
     if (idmIdentityService.createPrivilegeQuery().privilegeName("ROLE_REST").count() == 0) {
       Privilege restPrivilege = idmIdentityService.createPrivilege("ROLE_REST");
     }
@@ -29,10 +31,12 @@ public class UserCreatorCommandLineRunner implements CommandLineRunner {
       Privilege restPrivilege = idmIdentityService.createPrivilege("ROLE_ACTUATOR");
     }
 
-    createUserIfNotExists("folio");
+    createUserIfNotExists("admin");
   }
 
   protected void createUserIfNotExists(String username) {
+    println("createUserIfNotExists(${username})");
+
     if (idmIdentityService.createUserQuery().userId(username).count() == 0) {
       User user = idmIdentityService.newUser(username);
       user.setPassword("test");

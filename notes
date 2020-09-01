@@ -1,7 +1,10 @@
 
 
+https://blog.flowable.org/2018/12/19/building-your-own-flowable-spring-boot-application/
+
 https://www.codota.com/code/java/classes/org.flowable.common.engine.impl.cfg.multitenant.TenantAwareDataSource
 https://forum.flowable.org/t/spring-boot-and-multitenancy/4509
 https://github.com/flowable/flowable-engine/blob/master/modules/flowable-engine/src/test/java/org/flowable/engine/test/cfg/multitenant/MultiTenantProcessEngineTest.java#L74
 https://blog.flowable.org/2018/09/11/multitenancy-in-flowable/
 
+https://github.com/puhaiyang/flowable-springboot

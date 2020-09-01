@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.flowable.engine.impl.cfg.multitenant.MultiSchemaMultiTenantProcessEngineConfiguration;
 
 @RestController
-public class ArticleWorkflowController {
+public class TenantController {
 
     @Autowired
     MultiSchemaMultiTenantProcessEngineConfiguration processEngineConfiguration;
 
-    @GetMapping("/_tenant")
+    @GetMapping("/tenant")
     public String tenant() {
       println("Tenant post mapping");
 
