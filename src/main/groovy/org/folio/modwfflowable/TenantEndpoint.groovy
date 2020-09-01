@@ -1,4 +1,4 @@
-package com.baeldung.controller;
+package org.folio.modwfflowable
 
 import java.util.List;
 
@@ -13,8 +13,8 @@ import org.flowable.engine.impl.cfg.multitenant.MultiSchemaMultiTenantProcessEng
 @RestController
 public class TenantController {
 
-    @Autowired
-    MultiSchemaMultiTenantProcessEngineConfiguration processEngineConfiguration;
+    // @Autowired
+    // MultiSchemaMultiTenantProcessEngineConfiguration processEngineConfiguration;
 
     @GetMapping("/tenant")
     public String tenant() {

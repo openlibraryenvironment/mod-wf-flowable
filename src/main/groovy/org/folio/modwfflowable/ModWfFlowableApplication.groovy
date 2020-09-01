@@ -5,8 +5,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.flowable.spring.SpringProcessEngineConfiguration;
 import org.flowable.spring.boot.EngineConfigurationConfigurer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication
+
+// @ComponentScan(basePackages = "org.flowable.rest.service.api")
+// @ComponentScan("org.flowable")
+// @SpringBootApplication(scanBasePackages = { "org.flowable",...} )
+// https://flowable.com/open-source/docs/bpmn/ch15-REST/
+
+
+@SpringBootApplication(scanBasePackages = "org.flowable.rest.service.api")
 class ModWfFlowableApplication {
 
   static void main(String[] args) {
