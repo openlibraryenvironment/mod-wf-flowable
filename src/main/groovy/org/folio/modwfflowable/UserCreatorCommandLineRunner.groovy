@@ -1,4 +1,4 @@
-package org.folio.modwfflowable;
+package org.folio.modwfflowable
 
 import org.flowable.idm.api.IdmIdentityService;
 import org.flowable.idm.api.Privilege;

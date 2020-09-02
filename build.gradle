@@ -27,6 +27,7 @@ dependencies {
   compile 'org.springframework.boot:spring-boot-starter-security'
   compile 'org.springframework.boot:spring-boot-starter-web'
   compile 'org.codehaus.groovy:groovy'
+  compile "org.flowable:flowable-spring-boot-starter:${flowable_version}"
   compile "org.flowable:flowable-spring-boot-starter-rest:${flowable_version}"
 
   developmentOnly 'org.springframework.boot:spring-boot-devtools'

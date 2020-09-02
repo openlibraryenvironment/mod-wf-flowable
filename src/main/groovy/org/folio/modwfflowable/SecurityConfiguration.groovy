@@ -1,4 +1,4 @@
-package org.folio.modwfflowable;
+package org.folio.modwfflowable
 
 import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
 import org.springframework.boot.actuate.health.HealthEndpoint;
